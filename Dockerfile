@@ -63,15 +63,15 @@ RUN wget -q -O /app/uploads/CMU-1-Small-Region.svs \
 # do not need OPENSLIDE_BIN_PATH (the Windows hack).
 # ─────────────────────────────────────────────────────
 ENV OPENSLIDE_BIN_PATH=""
-ENV PORT=7860
+ENV PORT=8000
 ENV HOST=0.0.0.0
 
 # ─────────────────────────────────────────────────────
 # Expose Hugging Face's expected port
 # ─────────────────────────────────────────────────────
-EXPOSE 7860
+EXPOSE 8000
 
 # ─────────────────────────────────────────────────────
 # Start the application
 # ─────────────────────────────────────────────────────
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
