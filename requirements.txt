@@ -1,0 +1,18 @@
+# OpenSlide for reading WSI (Whole Slide Image) files
+openslide-python==1.4.3
+
+# Image processing
+Pillow==12.2.0
+
+# Web framework
+fastapi==0.136.1
+uvicorn==0.47.0
+
+# File upload handling
+python-multipart==0.0.29
+
+# HTML templating for serving the viewer page
+Jinja2==3.1.6
+
+# Async file operations for fast WSI handling
+aiofiles==25.1.0

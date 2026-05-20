@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ slide_name }} — Heidstar WSI Viewer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- OpenSeadragon — the industry-standard deep zoom viewer -->
+    <script src="https://cdn.jsdelivr.net/npm/openseadragon@4.1.0/build/openseadragon/openseadragon.min.js"></script>
+    <!-- OpenSeadragon plugin: scale bar -->
+    <script src="https://cdn.jsdelivr.net/npm/openseadragon-scalebar@0.4.0/openseadragon-scalebar.min.js"></script>
+</head>
+<body>
+
+    <div class="viewer-wrapper">
+
+        <!-- Top toolbar -->
+        <div class="viewer-toolbar">
+            <div class="left">
+                <a href="/" title="Back to slide list">← Back</a>
+                <span class="slide-title">{{ slide_name }}</span>
+            </div>
+            <div class="right">
+                <span class="viewer-meta">
+                    {{ info.dimensions[0] }} × {{ info.dimensions[1] }} px
+                </span>
+                {% if info.magnification %}
+                <span class="viewer-meta">
+                    {{ info.magnification }}× objective
+                </span>
+                {% endif %}
+                {% if info.mpp_x %}
+                <span class="viewer-meta">
+                    {{ "%.4f"|format(info.mpp_x) }} µm/px
+                </span>
+                {% endif %}
+                {% if info.vendor %}
+                <span class="viewer-meta">
+                    Vendor: {{ info.vendor }}
+                </span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- OpenSeadragon viewer container -->
+        <div id="openseadragon-viewer">
+            {% if info.has_label %}
+            <div class="label-thumbnail">
+                <img src="/api/slides/{{ slide_name }}/label" alt="Slide label">
+                <div class="label-caption">SLIDE LABEL</div>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <!-- Pass slide info into JavaScript -->
+    <script>
+        window.SLIDE_NAME = "{{ slide_name }}";
+        window.SLIDE_MPP = {{ info.mpp_x if info.mpp_x else 'null' }};
+        window.SLIDE_MAGNIFICATION = {{ info.magnification if info.magnification else 'null' }};
+    </script>
+    <script src="/static/js/viewer.js"></script>
+
+</body>
+</html>

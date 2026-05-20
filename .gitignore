@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# OS
+*.log
+*.tmp
+
+# Uploaded slides — never commit large SVS files to git
+uploads/*.svs
+uploads/*.tif
+uploads/*.tiff
+uploads/*.ndpi
+uploads/*.mrxs
+uploads/*.vms
+
+# Keep uploads folder, but ignore contents
+# (the Dockerfile will create and populate it)
+uploads/*
+!uploads/.gitkeep
+
+# Environment variables
+.env
+.env.local
+
+# Test files
+test_openslide.py

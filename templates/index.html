@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heidstar WSI Viewer — Slide Management</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-inner">
+            <div class="brand">
+                <span class="brand-mark">HEIDSTAR</span>
+                <span class="brand-sub">WSI Viewer</span>
+            </div>
+            <div class="header-meta">
+                <span>Whole Slide Image Management</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Upload card -->
+        <section class="card upload-card">
+            <h2 class="card-title">Upload a Slide</h2>
+            <p class="card-subtitle">
+                Supported formats: <code>.svs .tif .tiff .ndpi .mrxs .vms</code>
+                — maximum 5&nbsp;GB.
+            </p>
+
+            <form id="upload-form" class="upload-form">
+                <label class="upload-drop" for="file-input">
+                    <input type="file" id="file-input" name="file"
+                           accept=".svs,.tif,.tiff,.ndpi,.mrxs,.vms"
+                           hidden>
+                    <div class="upload-drop-inner">
+                        <div class="upload-icon">📁</div>
+                        <div class="upload-text">
+                            <strong>Click to select a slide file</strong>
+                            <span>or drag and drop here</span>
+                        </div>
+                    </div>
+                </label>
+
+                <div id="upload-status" class="upload-status hidden">
+                    <div class="upload-filename" id="upload-filename"></div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-bar" id="upload-progress-bar"></div>
+                    </div>
+                    <div class="upload-message" id="upload-message"></div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Slide list card -->
+        <section class="card list-card">
+            <div class="card-header-row">
+                <h2 class="card-title">Uploaded Slides</h2>
+                <button id="refresh-btn" class="btn btn-ghost">Refresh</button>
+            </div>
+
+            <div id="slide-list" class="slide-list">
+                <p class="empty-state">Loading slides…</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <span>Heidstar WSI Viewer · Built for digital pathology workflows</span>
+    </footer>
+
+    <script src="/static/js/index.js"></script>
+</body>
+</html>
