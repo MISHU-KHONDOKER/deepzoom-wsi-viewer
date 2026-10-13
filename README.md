@@ -1,6 +1,6 @@
-# Heidstar WSI Viewer
+# DeepZoom WSI Viewer
 
-> An online viewer for pathological **Whole Slide Images (WSI)** — built for the Heidstar Technology AI Application Engineer assignment.
+> An online viewer for pathological **Whole Slide Images (WSI)** — built as an AI Application Engineer take-home assignment.
 
 A production-grade web application that lets pathologists upload and view multi-gigabyte digital pathology slides in any modern browser, with smooth deep-zoom, real-world scale bars, and slide label preview — the same core technology that powers commercial pathology platforms like PathAI and Aiforia.
 
@@ -109,7 +109,7 @@ A single WSI file can be 100,000 × 100,000 pixels — far too large to send to 
 ## 📂 Project Structure
 
 ```
-heidstar-wsi-viewer/
+deepzoom-wsi-viewer/
 ├── app/
 │   ├── __init__.py
 │   ├── config.py            # Centralized settings (paths, tile size, JPEG quality)
@@ -147,8 +147,8 @@ heidstar-wsi-viewer/
 ### Setup
 
 ```bash
-git clone git@github.com:MISHU-KHONDOKER/heidstar-wsi-viewer.git
-cd heidstar-wsi-viewer
+git clone git@github.com:MISHU-KHONDOKER/deepzoom-wsi-viewer.git
+cd deepzoom-wsi-viewer
 
 # Create virtual environment
 python -m venv venv
@@ -176,8 +176,8 @@ A 2 MB starter file is `CMU-1-Small-Region.svs`.
 ## 🐳 Running with Docker
 
 ```bash
-docker build -t heidstar-wsi-viewer .
-docker run -p 7860:7860 heidstar-wsi-viewer
+docker build -t deepzoom-wsi-viewer .
+docker run -p 7860:7860 deepzoom-wsi-viewer
 ```
 
 The image installs OpenSlide system libraries, copies the application, and starts the server on port 7860. A demo slide (`CMU-1-Small-Region.svs`) is preloaded so the viewer works immediately.
@@ -251,5 +251,5 @@ MIT — see [LICENSE](LICENSE).
 M.S. Software Engineering, Northwestern Polytechnical University, Xi'an
 [GitHub](https://github.com/MISHU-KHONDOKER) · [LinkedIn](https://www.linkedin.com/in/mohyminul-islam-mishu-9977bb115/)
 
-Built as a take-home assignment for the AI Application Engineer role at **Heidstar Technology**, Xiamen.
+Built as a take-home assignment for an AI Application Engineer role in Xiamen.
 
